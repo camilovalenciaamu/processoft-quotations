@@ -1,0 +1,68 @@
+ .contenedor {
+   font-family: 'Open Sans', sans-serif;
+   background-color: rgb(255, 255, 255);
+   width: 500px;
+   padding: 50px;
+   margin-top: 50px;
+   margin-bottom: 70px;
+   padding-bottom: 10px;
+   border-radius: 15px;
+ }
+
+ input, select {
+   border-radius: 18px;
+ }
+
+ .h1-cotiza {
+   font-weight: bold;
+ }
+
+ @media screen and (max-width:576px) {
+   .h1-cotiza {
+     font-size: 30px;
+   }
+ }
+
+ .btn-enviar {
+   font-weight: bold;
+   background: black;
+   border: none;
+   cursor: pointer;
+   color: #fff;
+   display: inline-block;
+   padding: 10px 30px;
+   border-radius: 20px;
+   text-align: center;
+   line-height: 22px;
+   transition: .3s ease all;
+   margin-top: 10px;
+   margin-bottom: 20px;
+   margin-right: 5px;
+ }
+
+ [type="checkbox"] {
+   margin-right: 10px;
+   margin-left: -15px;
+ }
+
+ .check-label {
+   position: relative;
+ }
+
+ select {
+   background-image: linear-gradient(45deg, transparent 50%, rgb(26, 25, 25) 30%), linear-gradient(135deg, rgb(15, 15, 15) 40%, transparent 50%) !important;
+   background-position: calc(100% - 25px) 14px, calc(100% - 20px) 14px, 100% 0;
+   background-size: 8px 5px, 5px 5px;
+   background-repeat: no-repeat;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+ }
+
+ option {
+   margin-right: 30px;
+ }
+
+ /*
+ #ciudad {
+   width: 170px;
+ } */

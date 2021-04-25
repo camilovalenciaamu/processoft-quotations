@@ -1,0 +1,87 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<div class="container">
+  <div class="row">
+    <div class="d-flex justify-content-center col-md-12">
+      <div class="contenedor">
+        <form [formGroup]="quotationForm" (ngSubmit)="createQuotation(quotationForm.value)">
+          <h1 class="h1-cotiza">¡Cotiza la tuya!</h1>
+
+          <div class="form-group">
+            <label for="modelo">Selecciona un modelo</label>
+            <select formControlName="modelo" class="form-control" id="modelo">
+              <option value="{{car_model.subtitle}}" *ngFor="let car_model of models">
+                {{car_model.subtitle}}
+              </option>
+            </select>
+            <div class="text-danger">
+              <strong>{{getError("modelo")}}</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nombre-completo">Nombre completo</label>
+            <input formControlName="nombre_completo" type="text" class="form-control" id="nombre-completo" />
+            <div class="text-danger">
+              <strong>{{getError("nombre_completo")}}</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="correo">Email</label>
+            <input formControlName="email" type="email" class="form-control" id="correo" />
+            <div class="text-danger">
+              <strong>{{getError("email")}}</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="celular">Número celular</label>
+            <input formControlName="numero_celular" type="tel" class="form-control" id="celular">
+            <div class="text-danger">
+              <strong>{{getError("numero_celular")}}</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Departamento</label>
+            <select formControlName="departamento" [(ngModel)]="selected_region.id" (change)="onRegionSelected($event)"
+              class="form-control" id="departamento">
+              <option *ngFor="let region of regions" value={{region.id}}>
+                {{region.name}}
+              </option>
+            </select>
+            <div class="text-danger">
+              <strong>{{getError("departamento")}}</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ciudad">Ciudad</label>
+            <select formControlName="ciudad" class="form-control" id="ciudad">
+              <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
+            </select>
+            <div class="text-danger">
+              <strong>{{getError("ciudad")}}</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input formControlName="condictions" (change)="acceptCondictions($event)" type="checkbox"
+                name="check-politicas" id="check-politicas">
+              <label class="check-label" for="check-politicas"> Acepto la política
+                de</label><a href=""> Tratamiento de datos personales</a>
+            </div>
+            <div *ngIf="!condictions" class="text-danger">
+              <strong>Debes aceptar los términos</strong>
+            </div>
+
+          </div>
+          <button type="submit" class="btn-enviar" id="btn-enviar">
+            Enviar datos
+          </button>
+          <div *ngIf="quotation_succes" class="alert alert-success">
+            <strong>Cotización creada!</strong> Tu cotización fue creada con éxito.
+          </div>
+          <div *ngIf="quotation_alert " class="alert alert-warning">
+            {{quotation_alert}}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

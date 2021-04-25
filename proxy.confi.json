@@ -1,0 +1,8 @@
+{
+	"/api/*": {
+		"target": "https://integrador.processoft.com.co",
+		"secure": false,
+		"logLevel": "debug",
+		"changeOrigin": true
+	}
+}
